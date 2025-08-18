@@ -13,7 +13,7 @@ WINDOW_HEIGHT = ROWS * TILESIZE
 #
 # I'm setting the FOV in degrees - initially 60°(I may change this later)
 # Problem is most of the functions use radians intead of degrees
-# So teh formula here is (Radians = Degrees * (π / 180))
+# So the formula here is (Radians = Degrees * (π / 180))
 FOV = 60 * (math.pi / 180)
 
 # RES - is the width of each rectangle

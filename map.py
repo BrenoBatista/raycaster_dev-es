@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 
+#TODO: more MAPS!!!! I know i'll never do that
 class Map:
     def __init__(self):
         self.grid = [
@@ -16,6 +17,10 @@ class Map:
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         ]
 
+    def has_wall_at(self, x, y):# This returns the coordinates of x and y
+        #(x or y)/TILESIZE returns a coordinate of x and y
+        return self.grid[int(y // TILESIZE)][int(x // TILESIZE)]
+
     def render(self, screen):
         for i in range(len(self.grid)):
             for j in range(len(self.grid[0])):
@@ -24,9 +29,8 @@ class Map:
                 tile_y = i * TILESIZE
 
                     
-
+                #drawing the grid
                 if self.grid[i][j] == 0:
-                    pygame.draw.rect(screen, (255, 255, 255), (tile_x, tile_y, TILESIZE, TILESIZE))
-
-                if self.grid[i][j] == 1:
-                    pygame.draw.rect(screen, (55, 55, 55), (tile_x, tile_y, TILESIZE, TILESIZE))
+                    pygame.draw.rect(screen, (255, 255, 255), (tile_x, tile_y, TILESIZE - 1, TILESIZE - 1))
+                elif self.grid[i][j] == 1:
+                    pygame.draw.rect(screen, (55, 55, 55), (tile_x, tile_y, TILESIZE - 1, TILESIZE - 1))
