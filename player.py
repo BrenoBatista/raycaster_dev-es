@@ -8,7 +8,33 @@ class Player:
         self.x = WINDOW_WIDTH / 2
         self.y = WINDOW_HEIGHT / 2
         self.radius = 3 #player size. He's a chubby boy.
-        self.rotationAngle = 0
+        self.rotationAngle = 0 * (math.pi / 180)
+        self.turnDirection = 0
+        self.waldDirection = 0
+        self.rotationSpeed = 2 * (math.pi / 180)
+        self.moveSpeed = 2.5
+        
+        
+    def update(self):
+        keys = pygame.key.get_pressed()
+        
+        self.turnDirection = 0
+        self.waldDirection = 0
+        
+        if keys[pygame.K_RIGHT]:
+            self.turnDirection = 1
+        if keys[pygame.K_LEFT]:
+            self.turnDirection = -1
+        if keys[pygame.K_UP]:
+            self.waldDirection = 1
+        if keys[pygame.K_DOWN]:
+            self.waldDirection = -1
+            
+        moveStep = self.waldDirection * self.moveSpeed
+        self.rotationAngle += self.turnDirection * self.rotationSpeed
+        self.x += math.cos(self.rotationAngle) * moveStep
+        self.y += math.sin(self.rotationAngle) * moveStep
+        
 
     def render(self, screen):
         #draw the player, wich, by hte way, is a dot.

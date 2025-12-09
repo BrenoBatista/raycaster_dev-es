@@ -20,4 +20,4 @@ FOV = 60 * (math.pi / 180)
 # Changing RES changes the ammount of rectangles in the screen
 # The lower this value is the better everything looks
 RES = 4 
-NUM_RAYS = WINDOW_WIDTH / RES # Each rectangle is associated witha single ray
+NUM_RAYS = WINDOW_WIDTH // RES # Each rectangle is associated witha single ray
