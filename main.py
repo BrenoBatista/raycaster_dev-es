@@ -1,8 +1,8 @@
 import pygame
-from raycaster import Raycaster
+from Raycaster import Raycaster
 from settings import *
-from map import Map
-from player import *
+from Map import Map
+from Player import *
 
 screen =  pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
@@ -11,7 +11,9 @@ map = Map()
 player = Player()
 
 clock = pygame.time.Clock()
-raycaster = Raycaster(player)
+raycaster = Raycaster(player, map)
+
+backgroundImage = pygame.image.load("background.png")
 
 while True:
     clock.tick(60)
@@ -22,11 +24,10 @@ while True:
             
     player.update()
 
-    screen.fill((0, 0, 0))
+    screen.blit(backgroundImage, (0, 0))
     
-    map.render(screen)
-
-    player.render(screen)
+    #map.render(screen)
+    #player.render(screen)
     raycaster.castAllRays()
 
     raycaster.render(screen)

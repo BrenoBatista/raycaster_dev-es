@@ -16,7 +16,7 @@ class Map:
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         ]
 
-    def has_wall_at(self, x, y):# This returns the coordinates of x and y
+    def hasWallAt(self, x, y):# This returns the coordinates of x and y
         #(x or y)/TILESIZE returns a coordinate of x and y
         return self.grid[int(y // TILESIZE)][int(x // TILESIZE)]
 
